@@ -4,88 +4,229 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NTP Team</title>
-<meta name="description" content="NTP Team – nhà phát triển game độc lập.">
-<link rel="icon" href="holotutien/img/icon.png">
+<meta name="description" content="NTP Team – nhà phát triển game và ứng dụng di động độc lập từ Việt Nam.">
+<meta name="theme-color" content="#070b1a">
+<link rel="icon" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/favicon.png">
+<meta property="og:title" content="NTP Team">
+<meta property="og:description" content="Game và ứng dụng di động độc lập từ Việt Nam.">
+<meta property="og:image" content="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  html { color-scheme: light; }
+  :root {
+    --nen: #070b1a;
+    --nen-2: #0c1330;
+    --the: #0f1735;
+    --vien: #1d2a5a;
+    --chu: #eef2ff;
+    --chu-phu: #9aa6cf;
+    --xanh: #2f6bff;
+    --xanh-sang: #5aa8ff;
+  }
+  * { box-sizing: border-box; }
+  html { color-scheme: dark; scroll-behavior: smooth; }
   body {
     margin: 0;
-    background: #f2f3f7;
-    color: #1b1828;
-    font: 400 16px/1.65 "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial, sans-serif;
-    padding: 48px 16px 64px;
+    min-height: 100vh;
+    background:
+      radial-gradient(900px 520px at 50% -120px, rgba(47,107,255,.28), transparent 70%),
+      var(--nen);
+    color: var(--chu);
+    font: 400 16px/1.65 "Be Vietnam Pro", "Segoe UI", Roboto, Arial, sans-serif;
   }
-  .trang { max-width: 680px; margin: 0 auto; }
-  .nhan {
-    font: 600 12px/1 Consolas, "Courier New", monospace;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #9a5f0f;
-    margin-bottom: 12px;
+  .trang { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+
+  /* Hero */
+  .hero { text-align: center; padding: 40px 0 56px; }
+  .hero .logo {
+    width: 240px; height: 240px;
+    display: block; margin: 0 auto -8px;
+    filter: drop-shadow(0 0 40px rgba(47,107,255,.35));
   }
-  h1 { font-size: 36px; line-height: 1.2; margin: 0 0 8px; }
-  .gioi-thieu { color: #4a4760; margin: 0 0 32px; }
-  h2 { font-size: 20px; line-height: 1.3; margin: 0 0 16px; }
-  .ds-game { display: grid; gap: 16px; }
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 44px);
+    line-height: 1.15;
+    font-weight: 800;
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 span {
+    background: linear-gradient(90deg, var(--xanh), var(--xanh-sang));
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+  }
+  .hero p {
+    max-width: 560px; margin: 0 auto 28px;
+    color: var(--chu-phu);
+    font-size: 17px;
+  }
+  .nut {
+    display: inline-flex; align-items: center;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-weight: 600; font-size: 15px;
+    text-decoration: none;
+    transition: transform .15s, box-shadow .15s, background .15s;
+  }
+  .nut-chinh {
+    background: linear-gradient(90deg, var(--xanh), #3d86ff);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(47,107,255,.35);
+  }
+  .nut-chinh:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(47,107,255,.45); }
+  .nut-phu { border: 1px solid var(--vien); color: var(--chu); margin-left: 8px; }
+  .nut-phu:hover { background: var(--nen-2); }
+
+  /* Section */
+  section { padding: 24px 0 48px; }
+  .tieu-de { display: flex; align-items: baseline; gap: 12px; margin-bottom: 20px; }
+  .tieu-de h2 { margin: 0; font-size: 24px; font-weight: 700; }
+  .tieu-de .nhan {
+    font-size: 12px; font-weight: 600;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: var(--xanh-sang);
+  }
+
+  .ds-game {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
   .game {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    background: #fff;
-    border: 1px solid #e2e0ea;
-    border-radius: 14px;
-    padding: 16px;
+    display: flex; flex-direction: column;
+    background: linear-gradient(180deg, var(--the), var(--nen-2));
+    border: 1px solid var(--vien);
+    border-radius: 18px;
+    padding: 22px;
+    transition: border-color .2s, transform .2s;
   }
+  .game:hover { border-color: rgba(90,168,255,.55); transform: translateY(-3px); }
+  .game .dau { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
   .game img, .game .icon-chu {
     width: 64px; height: 64px; flex: none;
-    border-radius: 14px;
+    border-radius: 16px;
     image-rendering: pixelated;
+    background: #0a1028;
+    border: 1px solid var(--vien);
   }
   .game .icon-chu {
     display: grid; place-items: center;
-    background: #2a2540; color: #f2d48a;
-    font-size: 28px;
+    color: var(--xanh-sang);
+    font-size: 30px;
   }
-  .game h3 { margin: 0 0 2px; font-size: 18px; }
-  .game p { margin: 0 0 8px; color: #4a4760; font-size: 14px; }
-  .lien-ket { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 14px; }
-  a { color: #7a4a0a; font-weight: 600; }
-  a:hover { color: #9a5f0f; }
-  footer { margin-top: 40px; font-size: 14px; color: #4a4760; }
+  .game h3 { margin: 0; font-size: 19px; font-weight: 700; }
+  .game .the-loai { font-size: 12px; color: var(--chu-phu); letter-spacing: .04em; }
+  .game p { margin: 0 0 18px; color: var(--chu-phu); font-size: 15px; flex: 1; }
+  .lien-ket { display: flex; flex-wrap: wrap; gap: 8px; }
+  .lien-ket a {
+    font-size: 13px; font-weight: 600;
+    text-decoration: none;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(47,107,255,.12);
+    color: var(--xanh-sang);
+    border: 1px solid rgba(47,107,255,.25);
+    transition: background .15s;
+  }
+  .lien-ket a:hover { background: rgba(47,107,255,.24); }
+
+  /* Giá trị */
+  .gia-tri {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .gia-tri div {
+    padding: 18px 20px;
+    border-radius: 14px;
+    border: 1px solid var(--vien);
+    background: rgba(15,23,53,.5);
+  }
+  .gia-tri b { display: block; margin-bottom: 4px; font-size: 16px; }
+  .gia-tri span { color: var(--chu-phu); font-size: 14px; }
+
+  footer {
+    border-top: 1px solid var(--vien);
+    padding: 28px 0 40px;
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;
+    color: var(--chu-phu); font-size: 14px;
+  }
+  footer a { color: var(--xanh-sang); text-decoration: none; font-weight: 600; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 520px) {
+    .hero .logo { width: 190px; height: 190px; }
+    .nut-phu { margin: 10px 0 0 8px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
 </style>
 </head>
 <body>
 <div class="trang">
-  <div class="nhan">NTP Team</div>
-  <h1>Game độc lập từ Việt Nam</h1>
-  <p class="gioi-thieu">Chúng tôi làm những trò chơi nhỏ, chơi offline, lấy cảm hứng từ thế giới tu tiên và kiếm hiệp.</p>
+  <header class="hero">
+    <img class="logo" src="img/logo.png" alt="NTP Team – Game / Mobile App" width="240" height="240">
+    <h1>Game &amp; ứng dụng di động<br><span>độc lập từ Việt Nam</span></h1>
+    <p>Chúng tôi làm những trò chơi nhỏ, chơi offline, lấy cảm hứng từ thế giới tu tiên và kiếm hiệp.</p>
+    <a class="nut nut-chinh" href="#tro-choi">Xem trò chơi</a>
+    <a class="nut nut-phu" href="mailto:nguyentanphien93@gmail.com">Liên hệ</a>
+  </header>
 
-  <h2>Trò chơi</h2>
-  <div class="ds-game">
-    <div class="game">
-      <img src="holotutien/img/icon.png" alt="">
-      <div>
-        <h3>Hồ Lô Tu Tiên</h3>
+  <section id="tro-choi">
+    <div class="tieu-de">
+      <h2>Trò chơi</h2>
+      <span class="nhan">Game</span>
+    </div>
+    <div class="ds-game">
+      <article class="game">
+        <div class="dau">
+          <img src="holotutien/img/icon.png" alt="">
+          <div>
+            <h3>Hồ Lô Tu Tiên</h3>
+            <div class="the-loai">Tu tiên · Luyện đan · Offline</div>
+          </div>
+        </div>
         <p>Trồng linh dược trong hồ lô, luyện đan và đánh yêu thú theo lượt.</p>
         <div class="lien-ket">
           <a href="holotutien/">Giới thiệu</a>
           <a href="holotutien/huong-dan.html">Hướng dẫn</a>
         </div>
-      </div>
-    </div>
-    <div class="game">
-      <div class="icon-chu" aria-hidden="true">劍</div>
-      <div>
-        <h3>Ngự Kiếm Hành</h3>
+      </article>
+      <article class="game">
+        <div class="dau">
+          <div class="icon-chu" aria-hidden="true">劍</div>
+          <div>
+            <h3>Ngự Kiếm Hành</h3>
+            <div class="the-loai">Phiêu lưu · Kiếm hiệp</div>
+          </div>
+        </div>
         <p>Trò chơi ngự kiếm phiêu lưu.</p>
         <div class="lien-ket">
           <a href="ngulamkiem/">Chính sách riêng tư</a>
         </div>
-      </div>
+      </article>
     </div>
-  </div>
+  </section>
 
-  <footer>Liên hệ: <a href="mailto:nguyentanphien93@gmail.com">nguyentanphien93@gmail.com</a></footer>
+  <section>
+    <div class="tieu-de">
+      <h2>Cách chúng tôi làm game</h2>
+    </div>
+    <div class="gia-tri">
+      <div><b>Chơi offline</b><span>Không cần mạng, chơi mọi lúc mọi nơi.</span></div>
+      <div><b>Nhỏ gọn</b><span>Dung lượng nhẹ, chạy mượt trên điện thoại.</span></div>
+      <div><b>Tôn trọng người chơi</b><span>Minh bạch về dữ liệu và quyền riêng tư.</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 NTP Team</span>
+    <span>Liên hệ: <a href="mailto:nguyentanphien93@gmail.com">nguyentanphien93@gmail.com</a></span>
+  </footer>
 </div>
 </body>
 </html>
