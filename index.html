@@ -3,365 +3,89 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ngự Kiếm Hành · Quyền riêng tư</title>
-<meta name="description" content="Chính sách riêng tư của trò chơi Ngự Kiếm Hành.">
+<title>NTP Team</title>
+<meta name="description" content="NTP Team – nhà phát triển game độc lập.">
+<link rel="icon" href="holotutien/img/icon.png">
 <style>
   html { color-scheme: light; }
   body {
     margin: 0;
     background: #f2f3f7;
     color: #1b1828;
-    font: 400 16px/1.65 "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial,
-      "Hiragino Sans", "Yu Gothic", "Malgun Gothic", "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
-    padding: 32px 16px 64px;
+    font: 400 16px/1.65 "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+    padding: 48px 16px 64px;
   }
   .trang { max-width: 680px; margin: 0 auto; }
-  .dau-trang { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 12px; }
-  .ten-game {
+  .nhan {
     font: 600 12px/1 Consolas, "Courier New", monospace;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: #9a5f0f;
+    margin-bottom: 12px;
   }
-  .ngon-ngu select {
-    font: inherit;
-    font-size: 14px;
-    color: #1b1828;
+  h1 { font-size: 36px; line-height: 1.2; margin: 0 0 8px; }
+  .gioi-thieu { color: #4a4760; margin: 0 0 32px; }
+  h2 { font-size: 20px; line-height: 1.3; margin: 0 0 16px; }
+  .ds-game { display: grid; gap: 16px; }
+  .game {
+    display: flex;
+    gap: 16px;
+    align-items: center;
     background: #fff;
-    border: 1px solid #d6d3e0;
-    border-radius: 8px;
-    padding: 4px 8px;
+    border: 1px solid #e2e0ea;
+    border-radius: 14px;
+    padding: 16px;
   }
-  h1 { font-size: 32px; line-height: 1.2; margin: 0 0 8px; }
-  .ngay { font: 13px/1.4 Consolas, "Courier New", monospace; color: #4a4760; margin-bottom: 28px; }
-  h2 { font-size: 20px; line-height: 1.3; margin: 28px 0 8px; }
-  p { margin: 0 0 10px; }
-  ul { margin: 0; padding-left: 1.2em; }
-  li { margin-bottom: 4px; }
-  a { color: #9a5f0f; }
-  .tom-tat { background: #fbefd9; border-radius: 10px; padding: 18px 20px; }
-  .tom-tat h2 { font-size: 15px; margin-top: 0; }
+  .game img, .game .icon-chu {
+    width: 64px; height: 64px; flex: none;
+    border-radius: 14px;
+    image-rendering: pixelated;
+  }
+  .game .icon-chu {
+    display: grid; place-items: center;
+    background: #2a2540; color: #f2d48a;
+    font-size: 28px;
+  }
+  .game h3 { margin: 0 0 2px; font-size: 18px; }
+  .game p { margin: 0 0 8px; color: #4a4760; font-size: 14px; }
+  .lien-ket { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 14px; }
+  a { color: #7a4a0a; font-weight: 600; }
+  a:hover { color: #9a5f0f; }
+  footer { margin-top: 40px; font-size: 14px; color: #4a4760; }
 </style>
 </head>
 <body>
 <div class="trang">
-  <div class="dau-trang">
-    <div class="ten-game">Ngự Kiếm Hành</div>
-    <label class="ngon-ngu">
-      <select id="chon-ngon-ngu" aria-label="Language">
-        <option value="vi">Tiếng Việt</option>
-        <option value="en">English</option>
-        <option value="ja">日本語</option>
-        <option value="ko">한국어</option>
-        <option value="zh">中文</option>
-        <option value="id">Bahasa Indonesia</option>
-        <option value="pt">Português</option>
-        <option value="es">Español</option>
-      </select>
-    </label>
+  <div class="nhan">NTP Team</div>
+  <h1>Game độc lập từ Việt Nam</h1>
+  <p class="gioi-thieu">Chúng tôi làm những trò chơi nhỏ, chơi offline, lấy cảm hứng từ thế giới tu tiên và kiếm hiệp.</p>
+
+  <h2>Trò chơi</h2>
+  <div class="ds-game">
+    <div class="game">
+      <img src="holotutien/img/icon.png" alt="">
+      <div>
+        <h3>Hồ Lô Tu Tiên</h3>
+        <p>Trồng linh dược trong hồ lô, luyện đan và đánh yêu thú theo lượt.</p>
+        <div class="lien-ket">
+          <a href="holotutien/">Giới thiệu</a>
+          <a href="holotutien/huong-dan.html">Hướng dẫn</a>
+        </div>
+      </div>
+    </div>
+    <div class="game">
+      <div class="icon-chu" aria-hidden="true">劍</div>
+      <div>
+        <h3>Ngự Kiếm Hành</h3>
+        <p>Trò chơi ngự kiếm phiêu lưu.</p>
+        <div class="lien-ket">
+          <a href="ngulamkiem/">Chính sách riêng tư</a>
+        </div>
+      </div>
+    </div>
   </div>
-  <h1 data-i18n="h1">Chính sách riêng tư</h1>
-  <div class="ngay" data-i18n="date">Hiệu lực từ 26/09/2026</div>
 
-  <div class="tom-tat">
-    <h2 data-i18n="sumH">Tóm tắt</h2>
-    <ul>
-      <li data-i18n="s1">Trò chơi chơi offline, không cần tài khoản, không hỏi thông tin cá nhân.</li>
-      <li data-i18n="s2">Tiến độ và cài đặt chỉ lưu trên máy của bạn.</li>
-      <li data-i18n="s3">Trò chơi có quảng cáo của Google; Google có thể thu thập một số dữ liệu để hiện quảng cáo.</li>
-      <li data-i18n="s4">Người chơi nhỏ tuổi chỉ thấy quảng cáo phù hợp với trẻ em.</li>
-    </ul>
-  </div>
-
-  <h2 data-i18n="whoH">Ai chịu trách nhiệm</h2>
-  <p data-i18n="whoP">Ngự Kiếm Hành do NTP Team phát triển và phát hành. Trong chính sách này, “chúng tôi” là nhà phát triển đó.</p>
-
-  <h2 data-i18n="dataH">Dữ liệu lưu trên máy</h2>
-  <p data-i18n="dataP1">Trò chơi lưu tiến độ chơi và các cài đặt của bạn (như ngôn ngữ, âm thanh) ngay trên thiết bị. Chúng tôi không có máy chủ và không nhận được dữ liệu này.</p>
-  <p data-i18n="dataP2">Trò chơi hỏi năm sinh chỉ để biết bạn thuộc nhóm tuổi nào; năm sinh không được lưu lại.</p>
-
-  <h2 data-i18n="adsH">Quảng cáo</h2>
-  <p data-i18n="adsP1">Trò chơi miễn phí và có quảng cáo do Google AdMob cung cấp. Để hiện và đo quảng cáo, Google có thể thu thập mã nhận dạng quảng cáo của thiết bị, địa chỉ IP, thông tin thiết bị và cách bạn tương tác với quảng cáo. Google xử lý dữ liệu này theo <a href="https://policies.google.com/privacy?hl=vi">Chính sách quyền riêng tư của Google</a>.</p>
-  <p data-i18n="adsP2">Ở những nơi luật yêu cầu, trò chơi hỏi ý bạn trước khi hiện quảng cáo cá nhân hoá. Bạn có thể đổi lựa chọn trong phần Cài đặt của trò chơi.</p>
-
-  <h2 data-i18n="kidsH">Trẻ em</h2>
-  <p data-i18n="kidsP1">Trò chơi dành cho mọi lứa tuổi. Với người chơi nhỏ tuổi, trò chơi chỉ hiện quảng cáo không cá nhân hoá và phù hợp với trẻ em, theo chương trình Gia đình của Google Play.</p>
-  <p data-i18n="kidsP2">Chúng tôi không cố ý thu thập thông tin cá nhân của trẻ em. Nếu bạn là cha mẹ và có thắc mắc, hãy liên hệ với chúng tôi.</p>
-
-  <h2 data-i18n="shareH">Chia sẻ dữ liệu</h2>
-  <p data-i18n="shareP">Chúng tôi không bán dữ liệu của bạn và không chia sẻ nó với ai, ngoài việc hiện quảng cáo như mô tả ở trên.</p>
-
-  <h2 data-i18n="delH">Xoá dữ liệu</h2>
-  <p data-i18n="delP">Bạn có thể xoá tiến độ bằng nút Bắt đầu mới trong trò chơi, hoặc gỡ trò chơi để xoá toàn bộ dữ liệu trên máy.</p>
-
-  <h2 data-i18n="chgH">Thay đổi chính sách</h2>
-  <p data-i18n="chgP">Khi có thay đổi, chúng tôi sẽ cập nhật trang này và ngày hiệu lực ở đầu trang.</p>
-
-  <h2 data-i18n="contactH">Liên hệ</h2>
-  <p><span data-i18n="contactP">Mọi câu hỏi về quyền riêng tư, gửi về:</span> <a href="mailto:nguyentanphien93@gmail.com">nguyentanphien93@gmail.com</a></p>
+  <footer>Liên hệ: <a href="mailto:nguyentanphien93@gmail.com">nguyentanphien93@gmail.com</a></footer>
 </div>
-<script>
-(function () {
-  var GAME = 'Ngự Kiếm Hành';
-  var GOOGLE = '<a href="https://policies.google.com/privacy?hl={hl}">';
-
-  var T = {
-    en: {
-      title: 'Privacy Policy',
-      desc: 'Privacy policy for the game Ngự Kiếm Hành.',
-      h1: 'Privacy Policy',
-      date: 'Effective September 26, 2026',
-      sumH: 'Summary',
-      s1: 'The game plays offline, needs no account, and never asks for personal information.',
-      s2: 'Your progress and settings are stored only on your device.',
-      s3: 'The game shows ads from Google; Google may collect some data to serve ads.',
-      s4: 'Younger players only see ads suitable for children.',
-      whoH: 'Who is responsible',
-      whoP: GAME + ' is developed and published by NTP Team. In this policy, “we” refers to that developer.',
-      dataH: 'Data stored on your device',
-      dataP1: 'The game saves your progress and settings (such as language and sound) on your device. We have no servers and never receive this data.',
-      dataP2: 'The game asks for your birth year only to determine your age group; your birth year is not stored.',
-      adsH: 'Advertising',
-      adsP1: 'The game is free and shows ads provided by Google AdMob. To serve and measure ads, Google may collect your device’s advertising ID, IP address, device information, and how you interact with ads. Google processes this data under the ' + GOOGLE + 'Google Privacy Policy</a>.',
-      adsP2: 'Where required by law, the game asks for your consent before showing personalized ads. You can change your choice in the game’s Settings.',
-      kidsH: 'Children',
-      kidsP1: 'The game is suitable for all ages. For younger players, it shows only non-personalized, child-appropriate ads, in line with the Google Play Families program.',
-      kidsP2: 'We do not knowingly collect personal information from children. If you are a parent and have questions, please contact us.',
-      shareH: 'Data sharing',
-      shareP: 'We do not sell your data or share it with anyone, other than for showing ads as described above.',
-      delH: 'Deleting your data',
-      delP: 'You can erase your progress with the New Game button in the game, or uninstall the game to delete all data on your device.',
-      chgH: 'Changes to this policy',
-      chgP: 'If anything changes, we will update this page and the effective date at the top.',
-      contactH: 'Contact',
-      contactP: 'For any privacy questions, email:'
-    },
-    ja: {
-      title: 'プライバシーポリシー',
-      desc: 'ゲーム「Ngự Kiếm Hành」のプライバシーポリシー。',
-      h1: 'プライバシーポリシー',
-      date: '2026年9月26日施行',
-      sumH: '概要',
-      s1: '本ゲームはオフラインでプレイでき、アカウント登録は不要で、個人情報をお尋ねすることはありません。',
-      s2: '進行状況と設定はお使いの端末内にのみ保存されます。',
-      s3: '本ゲームにはGoogleの広告が表示されます。Googleは広告配信のために一部のデータを収集する場合があります。',
-      s4: '年少のプレイヤーには、子ども向けの広告のみが表示されます。',
-      whoH: '運営者',
-      whoP: GAME + 'は NTP Team が開発・配信しています。本ポリシーにおける「当方」とは、この開発者を指します。',
-      dataH: '端末に保存されるデータ',
-      dataP1: '本ゲームは、進行状況と設定（言語、サウンドなど）を端末内に保存します。当方はサーバーを持たず、これらのデータを受け取ることはありません。',
-      dataP2: '本ゲームは年齢層を判定するためだけに生まれ年をお尋ねします。生まれ年は保存されません。',
-      adsH: '広告',
-      adsP1: '本ゲームは無料で、Google AdMob による広告を表示します。広告の配信と効果測定のため、Googleは端末の広告ID、IPアドレス、端末情報、広告の操作状況を収集する場合があります。Googleはこれらのデータを' + GOOGLE + 'Googleプライバシーポリシー</a>に従って取り扱います。',
-      adsP2: '法律で求められる地域では、パーソナライズ広告を表示する前に同意をお尋ねします。選択内容はゲーム内の「設定」から変更できます。',
-      kidsH: 'お子様について',
-      kidsP1: '本ゲームは全年齢向けです。年少のプレイヤーには、Google Play の「ファミリー向けプログラム」に従い、パーソナライズされていない子ども向けの広告のみを表示します。',
-      kidsP2: '当方はお子様の個人情報を意図的に収集することはありません。保護者の方でご不明な点があれば、お問い合わせください。',
-      shareH: 'データの共有',
-      shareP: '当方はお客様のデータを販売せず、上記の広告表示以外の目的で第三者と共有することもありません。',
-      delH: 'データの削除',
-      delP: 'ゲーム内の「ニューゲーム」ボタンで進行状況を消去できます。また、ゲームをアンインストールすると端末内のすべてのデータが削除されます。',
-      chgH: 'ポリシーの変更',
-      chgP: '変更がある場合は、本ページおよびページ上部の施行日を更新します。',
-      contactH: 'お問い合わせ',
-      contactP: 'プライバシーに関するご質問は、こちらまでご連絡ください：'
-    },
-    ko: {
-      title: '개인정보처리방침',
-      desc: '게임 Ngự Kiếm Hành의 개인정보처리방침입니다.',
-      h1: '개인정보처리방침',
-      date: '시행일: 2026년 9월 26일',
-      sumH: '요약',
-      s1: '이 게임은 오프라인으로 플레이하며, 계정이 필요 없고 개인정보를 묻지 않습니다.',
-      s2: '진행 상황과 설정은 사용자의 기기에만 저장됩니다.',
-      s3: '게임에는 Google 광고가 표시되며, Google은 광고 제공을 위해 일부 데이터를 수집할 수 있습니다.',
-      s4: '어린 플레이어에게는 아동에게 적합한 광고만 표시됩니다.',
-      whoH: '책임 주체',
-      whoP: GAME + '은(는) NTP Team이 개발 및 배급합니다. 이 방침에서 ‘당사’는 해당 개발자를 의미합니다.',
-      dataH: '기기에 저장되는 데이터',
-      dataP1: '게임은 진행 상황과 설정(언어, 사운드 등)을 기기에 저장합니다. 당사는 서버를 운영하지 않으며 이 데이터를 받지 않습니다.',
-      dataP2: '게임은 연령대를 확인하기 위해서만 출생 연도를 묻습니다. 출생 연도는 저장되지 않습니다.',
-      adsH: '광고',
-      adsP1: '이 게임은 무료이며 Google AdMob에서 제공하는 광고를 표시합니다. 광고를 게재하고 측정하기 위해 Google은 기기의 광고 ID, IP 주소, 기기 정보 및 광고와의 상호작용 정보를 수집할 수 있습니다. Google은 ' + GOOGLE + 'Google 개인정보처리방침</a>에 따라 이 데이터를 처리합니다.',
-      adsP2: '법률에서 요구하는 지역에서는 맞춤형 광고를 표시하기 전에 동의를 요청합니다. 선택 사항은 게임의 설정에서 변경할 수 있습니다.',
-      kidsH: '아동',
-      kidsP1: '이 게임은 모든 연령에 적합합니다. 어린 플레이어에게는 Google Play 가족 정책 프로그램에 따라 맞춤형이 아닌, 아동에게 적합한 광고만 표시합니다.',
-      kidsP2: '당사는 아동의 개인정보를 고의로 수집하지 않습니다. 보호자로서 궁금한 점이 있으시면 문의해 주세요.',
-      shareH: '데이터 공유',
-      shareP: '당사는 사용자의 데이터를 판매하지 않으며, 위에 설명한 광고 표시 외에는 누구와도 공유하지 않습니다.',
-      delH: '데이터 삭제',
-      delP: '게임 내 ‘새 게임’ 버튼으로 진행 상황을 삭제하거나, 게임을 삭제하여 기기의 모든 데이터를 지울 수 있습니다.',
-      chgH: '방침 변경',
-      chgP: '변경 사항이 있으면 이 페이지와 상단의 시행일을 업데이트합니다.',
-      contactH: '문의',
-      contactP: '개인정보 관련 문의는 다음 이메일로 보내 주세요:'
-    },
-    zh: {
-      title: '隐私政策',
-      desc: '游戏 Ngự Kiếm Hành 的隐私政策。',
-      h1: '隐私政策',
-      date: '生效日期：2026年9月26日',
-      sumH: '摘要',
-      s1: '本游戏可离线游玩，无需账号，不会索取任何个人信息。',
-      s2: '游戏进度和设置仅保存在您的设备上。',
-      s3: '游戏中有 Google 广告；Google 可能会为投放广告收集部分数据。',
-      s4: '年龄较小的玩家只会看到适合儿童的广告。',
-      whoH: '责任方',
-      whoP: GAME + ' 由 NTP Team 开发并发行。本政策中的“我们”即指该开发者。',
-      dataH: '保存在设备上的数据',
-      dataP1: '游戏会在您的设备上保存游戏进度和设置（如语言、声音）。我们没有服务器，也不会收到这些数据。',
-      dataP2: '游戏询问您的出生年份仅用于判断您的年龄段；出生年份不会被保存。',
-      adsH: '广告',
-      adsP1: '本游戏免费，并展示由 Google AdMob 提供的广告。为投放和衡量广告，Google 可能会收集设备的广告标识符、IP 地址、设备信息以及您与广告的互动情况。Google 依据' + GOOGLE + 'Google 隐私权政策</a>处理这些数据。',
-      adsP2: '在法律有要求的地区，游戏会在展示个性化广告前征求您的同意。您可以在游戏的“设置”中更改选择。',
-      kidsH: '儿童',
-      kidsP1: '本游戏适合所有年龄段。对于年龄较小的玩家，游戏依照 Google Play 家庭计划，仅展示非个性化且适合儿童的广告。',
-      kidsP2: '我们不会故意收集儿童的个人信息。如果您是家长并有任何疑问，请与我们联系。',
-      shareH: '数据共享',
-      shareP: '我们不会出售您的数据，除上述广告展示外，也不会与任何人共享。',
-      delH: '删除数据',
-      delP: '您可以通过游戏中的“新游戏”按钮清除进度，或卸载游戏以删除设备上的全部数据。',
-      chgH: '政策变更',
-      chgP: '如有变更，我们会更新本页面及页首的生效日期。',
-      contactH: '联系我们',
-      contactP: '如有任何隐私问题，请发送邮件至：'
-    },
-    id: {
-      title: 'Kebijakan Privasi',
-      desc: 'Kebijakan privasi untuk game Ngự Kiếm Hành.',
-      h1: 'Kebijakan Privasi',
-      date: 'Berlaku sejak 26 September 2026',
-      sumH: 'Ringkasan',
-      s1: 'Game dapat dimainkan secara offline, tanpa akun, dan tidak meminta informasi pribadi.',
-      s2: 'Progres dan pengaturan hanya disimpan di perangkat Anda.',
-      s3: 'Game menampilkan iklan dari Google; Google dapat mengumpulkan sebagian data untuk menampilkan iklan.',
-      s4: 'Pemain di bawah umur hanya melihat iklan yang sesuai untuk anak-anak.',
-      whoH: 'Pihak yang bertanggung jawab',
-      whoP: GAME + ' dikembangkan dan diterbitkan oleh NTP Team. Dalam kebijakan ini, “kami” merujuk pada pengembang tersebut.',
-      dataH: 'Data yang disimpan di perangkat',
-      dataP1: 'Game menyimpan progres dan pengaturan Anda (seperti bahasa dan suara) di perangkat. Kami tidak memiliki server dan tidak menerima data ini.',
-      dataP2: 'Game menanyakan tahun lahir hanya untuk mengetahui kelompok usia Anda; tahun lahir tidak disimpan.',
-      adsH: 'Iklan',
-      adsP1: 'Game ini gratis dan menampilkan iklan dari Google AdMob. Untuk menampilkan dan mengukur iklan, Google dapat mengumpulkan ID iklan perangkat, alamat IP, informasi perangkat, dan cara Anda berinteraksi dengan iklan. Google memproses data ini sesuai dengan ' + GOOGLE + 'Kebijakan Privasi Google</a>.',
-      adsP2: 'Di wilayah yang diwajibkan oleh hukum, game akan meminta persetujuan Anda sebelum menampilkan iklan yang dipersonalisasi. Anda dapat mengubah pilihan di menu Pengaturan dalam game.',
-      kidsH: 'Anak-anak',
-      kidsP1: 'Game ini cocok untuk semua usia. Untuk pemain di bawah umur, game hanya menampilkan iklan non-personal yang sesuai untuk anak-anak, sesuai dengan program Keluarga Google Play.',
-      kidsP2: 'Kami tidak dengan sengaja mengumpulkan informasi pribadi anak-anak. Jika Anda orang tua dan memiliki pertanyaan, silakan hubungi kami.',
-      shareH: 'Berbagi data',
-      shareP: 'Kami tidak menjual data Anda dan tidak membagikannya kepada siapa pun, selain untuk menampilkan iklan seperti dijelaskan di atas.',
-      delH: 'Menghapus data',
-      delP: 'Anda dapat menghapus progres dengan tombol Permainan Baru di dalam game, atau mencopot pemasangan game untuk menghapus semua data di perangkat.',
-      chgH: 'Perubahan kebijakan',
-      chgP: 'Jika ada perubahan, kami akan memperbarui halaman ini beserta tanggal berlaku di bagian atas.',
-      contactH: 'Kontak',
-      contactP: 'Untuk pertanyaan apa pun tentang privasi, kirim email ke:'
-    },
-    pt: {
-      title: 'Política de Privacidade',
-      desc: 'Política de privacidade do jogo Ngự Kiếm Hành.',
-      h1: 'Política de Privacidade',
-      date: 'Em vigor desde 26 de setembro de 2026',
-      sumH: 'Resumo',
-      s1: 'O jogo funciona offline, não exige conta e não pede informações pessoais.',
-      s2: 'Seu progresso e suas configurações ficam salvos apenas no seu dispositivo.',
-      s3: 'O jogo exibe anúncios do Google; o Google pode coletar alguns dados para exibir anúncios.',
-      s4: 'Jogadores mais novos veem apenas anúncios adequados para crianças.',
-      whoH: 'Quem é o responsável',
-      whoP: GAME + ' é desenvolvido e publicado pela NTP Team. Nesta política, “nós” se refere a esse desenvolvedor.',
-      dataH: 'Dados salvos no dispositivo',
-      dataP1: 'O jogo salva seu progresso e suas configurações (como idioma e som) no próprio dispositivo. Não temos servidores e não recebemos esses dados.',
-      dataP2: 'O jogo pergunta seu ano de nascimento apenas para saber sua faixa etária; o ano de nascimento não é armazenado.',
-      adsH: 'Publicidade',
-      adsP1: 'O jogo é gratuito e exibe anúncios fornecidos pelo Google AdMob. Para exibir e medir anúncios, o Google pode coletar o ID de publicidade do dispositivo, o endereço IP, informações do dispositivo e a forma como você interage com os anúncios. O Google trata esses dados de acordo com a ' + GOOGLE + 'Política de Privacidade do Google</a>.',
-      adsP2: 'Onde a lei exigir, o jogo pede seu consentimento antes de exibir anúncios personalizados. Você pode alterar sua escolha nas Configurações do jogo.',
-      kidsH: 'Crianças',
-      kidsP1: 'O jogo é para todas as idades. Para jogadores mais novos, o jogo exibe apenas anúncios não personalizados e adequados para crianças, conforme o programa Famílias do Google Play.',
-      kidsP2: 'Não coletamos intencionalmente informações pessoais de crianças. Se você é pai, mãe ou responsável e tem dúvidas, entre em contato conosco.',
-      shareH: 'Compartilhamento de dados',
-      shareP: 'Não vendemos seus dados nem os compartilhamos com ninguém, exceto para exibir anúncios conforme descrito acima.',
-      delH: 'Exclusão de dados',
-      delP: 'Você pode apagar seu progresso com o botão Novo Jogo dentro do jogo, ou desinstalar o jogo para excluir todos os dados do dispositivo.',
-      chgH: 'Alterações nesta política',
-      chgP: 'Quando houver alterações, atualizaremos esta página e a data de vigência no topo.',
-      contactH: 'Contato',
-      contactP: 'Para qualquer dúvida sobre privacidade, envie um e-mail para:'
-    },
-    es: {
-      title: 'Política de privacidad',
-      desc: 'Política de privacidad del juego Ngự Kiếm Hành.',
-      h1: 'Política de privacidad',
-      date: 'Vigente desde el 26 de septiembre de 2026',
-      sumH: 'Resumen',
-      s1: 'El juego funciona sin conexión, no requiere cuenta y no solicita información personal.',
-      s2: 'Tu progreso y tus ajustes se guardan solo en tu dispositivo.',
-      s3: 'El juego muestra anuncios de Google; Google puede recopilar algunos datos para mostrar anuncios.',
-      s4: 'Los jugadores más jóvenes solo ven anuncios adecuados para niños.',
-      whoH: 'Responsable',
-      whoP: GAME + ' es desarrollado y publicado por NTP Team. En esta política, “nosotros” se refiere a dicho desarrollador.',
-      dataH: 'Datos guardados en el dispositivo',
-      dataP1: 'El juego guarda tu progreso y tus ajustes (como el idioma y el sonido) en tu dispositivo. No tenemos servidores y no recibimos estos datos.',
-      dataP2: 'El juego pregunta tu año de nacimiento solo para saber a qué grupo de edad perteneces; el año de nacimiento no se guarda.',
-      adsH: 'Publicidad',
-      adsP1: 'El juego es gratuito y muestra anuncios proporcionados por Google AdMob. Para mostrar y medir los anuncios, Google puede recopilar el identificador de publicidad del dispositivo, la dirección IP, información del dispositivo y cómo interactúas con los anuncios. Google trata estos datos de acuerdo con la ' + GOOGLE + 'Política de Privacidad de Google</a>.',
-      adsP2: 'Donde la ley lo exija, el juego te pedirá tu consentimiento antes de mostrar anuncios personalizados. Puedes cambiar tu elección en los Ajustes del juego.',
-      kidsH: 'Niños',
-      kidsP1: 'El juego es apto para todas las edades. Para los jugadores más jóvenes, solo muestra anuncios no personalizados y adecuados para niños, conforme al programa Familias de Google Play.',
-      kidsP2: 'No recopilamos intencionadamente información personal de niños. Si eres padre, madre o tutor y tienes alguna pregunta, contáctanos.',
-      shareH: 'Compartir datos',
-      shareP: 'No vendemos tus datos ni los compartimos con nadie, salvo para mostrar anuncios como se describe arriba.',
-      delH: 'Eliminar datos',
-      delP: 'Puedes borrar tu progreso con el botón Nueva partida del juego, o desinstalar el juego para eliminar todos los datos del dispositivo.',
-      chgH: 'Cambios en esta política',
-      chgP: 'Si hay cambios, actualizaremos esta página y la fecha de entrada en vigor en la parte superior.',
-      contactH: 'Contacto',
-      contactP: 'Para cualquier pregunta sobre privacidad, escribe a:'
-    }
-  };
-
-  // Tiếng Việt lấy thẳng từ HTML gốc, để trang vẫn đọc được khi tắt JS.
-  var nodes = document.querySelectorAll('[data-i18n]');
-  var meta = document.querySelector('meta[name="description"]');
-  T.vi = { title: 'Quyền riêng tư', desc: meta.content };
-  nodes.forEach(function (el) { T.vi[el.dataset.i18n] = el.innerHTML; });
-
-  var HL = { vi: 'vi', en: 'en', ja: 'ja', ko: 'ko', zh: 'zh-CN', id: 'id', pt: 'pt-BR', es: 'es' };
-  var select = document.getElementById('chon-ngon-ngu');
-
-  function apply(lang) {
-    var t = T[lang];
-    nodes.forEach(function (el) {
-      var s = t[el.dataset.i18n];
-      if (s != null) el.innerHTML = s.replace('{hl}', HL[lang]);
-    });
-    document.documentElement.lang = HL[lang];
-    document.title = GAME + ' · ' + t.title;
-    meta.content = t.desc;
-    select.value = lang;
-  }
-
-  function pick() {
-    var q = new URLSearchParams(location.search).get('lang');
-    if (q && T[q.toLowerCase()]) return q.toLowerCase();
-    try { var saved = localStorage.getItem('lang'); if (saved && T[saved]) return saved; } catch (e) {}
-    var prefs = navigator.languages || [navigator.language || ''];
-    for (var i = 0; i < prefs.length; i++) {
-      var code = String(prefs[i]).toLowerCase().split('-')[0];
-      if (T[code]) return code;
-    }
-    return 'en';
-  }
-
-  select.addEventListener('change', function () {
-    var lang = select.value;
-    apply(lang);
-    try { localStorage.setItem('lang', lang); } catch (e) {}
-    var url = new URL(location.href);
-    url.searchParams.set('lang', lang);
-    history.replaceState(null, '', url);
-  });
-
-  apply(pick());
-})();
-</script>
 </body>
 </html>
