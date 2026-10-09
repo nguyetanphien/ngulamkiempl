@@ -203,20 +203,6 @@
   }
   .game:hover, .game:focus-visible { border-color: var(--vien-sang); transform: translateY(-4px); }
   .game:focus-visible { outline: 2px solid var(--xanh-nhat); outline-offset: 3px; }
-  .game::after {
-    content: "→";
-    position: absolute; bottom: 22px; right: 22px;
-    width: 34px; height: 34px;
-    display: grid; place-items: center;
-    border-radius: 50%;
-    font-size: 17px;
-    color: var(--xanh-nhat);
-    background: rgba(63,162,255,.12);
-    border: 1px solid rgba(63,162,255,.28);
-    transition: background .2s, transform .2s, color .2s;
-  }
-  .game:hover::after { background: var(--xanh); color: #fff; transform: translateX(3px); }
-  .game p { padding-right: 44px; min-height: 34px; }
   .game .dau { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
   .game img {
     width: 64px; height: 64px; flex: none;
