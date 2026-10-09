@@ -5,181 +5,306 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NTP Team</title>
 <meta name="description" content="NTP Team – nhà phát triển game và ứng dụng di động độc lập từ Việt Nam.">
-<meta name="theme-color" content="#070b1a">
+<meta name="theme-color" content="#041045">
 <link rel="icon" href="img/favicon.png">
-<link rel="apple-touch-icon" href="img/favicon.png">
-<meta property="og:title" content="NTP Team">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta property="og:title" content="NTP Team – Game / Mobile App">
 <meta property="og:description" content="Game và ứng dụng di động độc lập từ Việt Nam.">
-<meta property="og:image" content="img/logo.png">
+<meta property="og:image" content="https://ntpteam.id.vn/img/og.jpg">
+<meta property="og:url" content="https://ntpteam.id.vn/">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Michroma&display=swap" rel="stylesheet">
 <style>
   :root {
-    --nen: #070b1a;
-    --nen-2: #0c1330;
-    --the: #0f1735;
-    --vien: #1d2a5a;
-    --chu: #eef2ff;
-    --chu-phu: #9aa6cf;
-    --xanh: #2f6bff;
-    --xanh-sang: #5aa8ff;
+    --nen: #030c3a;
+    --nen-2: #06155a;
+    --the: rgba(10, 34, 130, .38);
+    --vien: rgba(90, 150, 255, .22);
+    --vien-sang: rgba(110, 175, 255, .6);
+    --chu: #f2f6ff;
+    --chu-phu: #a9b8e8;
+    --xanh: #1f5eff;
+    --xanh-sang: #3fa2ff;
+    --xanh-nhat: #8fd0ff;
+    --rong: "Michroma", "Be Vietnam Pro", sans-serif;
   }
   * { box-sizing: border-box; }
   html { color-scheme: dark; scroll-behavior: smooth; }
   body {
     margin: 0;
     min-height: 100vh;
+    overflow-x: hidden;
     background:
-      radial-gradient(900px 520px at 50% -120px, rgba(47,107,255,.28), transparent 70%),
-      var(--nen);
+      radial-gradient(1100px 700px at 50% 18%, #071a6e 0%, transparent 70%),
+      linear-gradient(160deg, #0732b8 0%, #041355 32%, var(--nen) 60%, #05165e 100%);
+    background-color: var(--nen);
     color: var(--chu);
     font: 400 16px/1.65 "Be Vietnam Pro", "Segoe UI", Roboto, Arial, sans-serif;
   }
-  .trang { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+
+  /* Vệt sáng chéo như trong logo */
+  .vet {
+    position: fixed; inset: 0;
+    pointer-events: none; z-index: 0;
+    overflow: hidden;
+  }
+  .vet i {
+    position: absolute;
+    width: 160vmax; height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(80,160,255,.9) 45%, #bfe3ff 50%, rgba(80,160,255,.9) 55%, transparent);
+    box-shadow: 0 0 18px 2px rgba(60,140,255,.55);
+    transform: rotate(-36deg);
+    transform-origin: center;
+  }
+  .vet i:nth-child(1) { top: 8%;  left: -95vmax; }
+  .vet i:nth-child(2) { top: 14%; left: -100vmax; opacity: .5; }
+  .vet i:nth-child(3) { top: 92%; left: 10vmax; }
+  .vet i:nth-child(4) { top: 98%; left: 14vmax; opacity: .5; }
+  .vet b {
+    position: absolute;
+    width: 120vmax; height: 26vmax;
+    background: linear-gradient(180deg, rgba(31,94,255,.22), transparent);
+    transform: rotate(-36deg);
+  }
+  .vet b:nth-child(5) { top: -14vmax; left: -78vmax; }
+  .vet b:nth-child(6) { bottom: -16vmax; right: -70vmax; transform: rotate(144deg); }
+
+  .trang { position: relative; z-index: 1; max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+
+  /* Thanh trên */
+  .thanh {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 18px 0;
+  }
+  .thuong-hieu {
+    display: flex; align-items: center; gap: 10px;
+    color: var(--chu); text-decoration: none;
+    font-family: var(--rong); font-size: 15px; letter-spacing: .06em;
+  }
+  .thuong-hieu img { width: 34px; height: 34px; border-radius: 9px; }
+  .thuong-hieu span { color: var(--xanh-sang); }
+  .menu { display: flex; gap: 22px; }
+  .menu a {
+    color: var(--chu-phu); text-decoration: none;
+    font-size: 14px; font-weight: 500;
+    transition: color .15s;
+  }
+  .menu a:hover { color: var(--chu); }
 
   /* Hero */
-  .hero { text-align: center; padding: 40px 0 56px; }
-  .hero .logo {
-    width: 240px; height: 240px;
-    display: block; margin: 0 auto -8px;
-    filter: drop-shadow(0 0 40px rgba(47,107,255,.35));
+  .hero { text-align: center; padding: 48px 0 72px; }
+  .hero .dau-an {
+    width: min(360px, 78vw); height: auto;
+    display: block; margin: 0 auto 28px;
+    filter: drop-shadow(0 0 36px rgba(47,130,255,.45));
+    animation: noi 6s ease-in-out infinite;
   }
-  .hero h1 {
-    font-size: clamp(28px, 5vw, 44px);
-    line-height: 1.15;
-    font-weight: 800;
-    margin: 0 0 14px;
-    letter-spacing: -0.01em;
+  @keyframes noi { 50% { transform: translateY(-8px); } }
+  .ten {
+    font-family: var(--rong);
+    font-size: clamp(34px, 7.4vw, 68px);
+    line-height: 1.1;
+    margin: 0;
+    letter-spacing: .02em;
+    font-weight: 400;
   }
-  .hero h1 span {
-    background: linear-gradient(90deg, var(--xanh), var(--xanh-sang));
+  .ten span {
+    background: linear-gradient(180deg, var(--xanh-nhat), var(--xanh-sang) 45%, var(--xanh));
     -webkit-background-clip: text; background-clip: text;
     color: transparent;
   }
-  .hero p {
-    max-width: 560px; margin: 0 auto 28px;
+  .khau-hieu {
+    margin: 14px 0 0;
+    font-family: var(--rong);
+    font-size: clamp(11px, 2vw, 15px);
+    letter-spacing: .42em;
+    color: #dfe7ff;
+  }
+  .khau-hieu em { font-style: normal; color: var(--xanh-sang); margin: 0 .5em; }
+  .gioi-thieu {
+    max-width: 560px; margin: 26px auto 32px;
     color: var(--chu-phu);
     font-size: 17px;
   }
+  .nut-nhom { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
   .nut {
-    display: inline-flex; align-items: center;
-    padding: 12px 22px;
-    border-radius: 999px;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 26px;
     font-weight: 600; font-size: 15px;
     text-decoration: none;
-    transition: transform .15s, box-shadow .15s, background .15s;
+    clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+    transition: transform .15s, filter .15s, background .15s;
   }
   .nut-chinh {
-    background: linear-gradient(90deg, var(--xanh), #3d86ff);
+    background: linear-gradient(90deg, var(--xanh), var(--xanh-sang));
     color: #fff;
-    box-shadow: 0 8px 24px rgba(47,107,255,.35);
   }
-  .nut-chinh:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(47,107,255,.45); }
-  .nut-phu { border: 1px solid var(--vien); color: var(--chu); margin-left: 8px; }
-  .nut-phu:hover { background: var(--nen-2); }
+  .nut-chinh:hover { transform: translateY(-2px); filter: brightness(1.12); }
+  .nut-phu { background: rgba(63,162,255,.14); color: var(--chu); }
+  .nut-phu:hover { background: rgba(63,162,255,.26); }
 
   /* Section */
-  section { padding: 24px 0 48px; }
-  .tieu-de { display: flex; align-items: baseline; gap: 12px; margin-bottom: 20px; }
-  .tieu-de h2 { margin: 0; font-size: 24px; font-weight: 700; }
+  section { padding: 28px 0 56px; scroll-margin-top: 16px; }
+  .tieu-de { margin-bottom: 24px; }
   .tieu-de .nhan {
-    font-size: 12px; font-weight: 600;
-    letter-spacing: .18em; text-transform: uppercase;
+    display: block;
+    font-family: var(--rong);
+    font-size: 11px;
+    letter-spacing: .32em;
     color: var(--xanh-sang);
+    margin-bottom: 6px;
+  }
+  .tieu-de h2 { margin: 0; font-size: clamp(24px, 4vw, 30px); font-weight: 800; }
+  .tieu-de h2::after {
+    content: ""; display: block;
+    width: 56px; height: 3px; margin-top: 12px;
+    background: linear-gradient(90deg, var(--xanh-sang), transparent);
+    transform: skewX(-36deg);
   }
 
   .ds-game {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
     gap: 20px;
   }
   .game {
+    position: relative;
     display: flex; flex-direction: column;
-    background: linear-gradient(180deg, var(--the), var(--nen-2));
+    background: var(--the);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid var(--vien);
-    border-radius: 18px;
-    padding: 22px;
+    border-radius: 20px;
+    padding: 24px;
+    overflow: hidden;
     transition: border-color .2s, transform .2s;
   }
-  .game:hover { border-color: rgba(90,168,255,.55); transform: translateY(-3px); }
+  .game::before {
+    content: ""; position: absolute;
+    top: 0; left: 24px; right: 24px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--xanh-nhat), transparent);
+    opacity: .7;
+  }
+  .game:hover { border-color: var(--vien-sang); transform: translateY(-4px); }
   .game .dau { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
   .game img, .game .icon-chu {
     width: 64px; height: 64px; flex: none;
     border-radius: 16px;
     image-rendering: pixelated;
-    background: #0a1028;
+    background: #061650;
     border: 1px solid var(--vien);
   }
   .game .icon-chu {
     display: grid; place-items: center;
-    color: var(--xanh-sang);
+    color: var(--xanh-nhat);
     font-size: 30px;
   }
-  .game h3 { margin: 0; font-size: 19px; font-weight: 700; }
+  .game h3 { margin: 0; font-size: 20px; font-weight: 700; }
   .game .the-loai { font-size: 12px; color: var(--chu-phu); letter-spacing: .04em; }
-  .game p { margin: 0 0 18px; color: var(--chu-phu); font-size: 15px; flex: 1; }
+  .game p { margin: 0 0 20px; color: var(--chu-phu); font-size: 15px; flex: 1; }
   .lien-ket { display: flex; flex-wrap: wrap; gap: 8px; }
   .lien-ket a {
     font-size: 13px; font-weight: 600;
     text-decoration: none;
     padding: 7px 14px;
     border-radius: 999px;
-    background: rgba(47,107,255,.12);
-    color: var(--xanh-sang);
-    border: 1px solid rgba(47,107,255,.25);
+    background: rgba(63,162,255,.14);
+    color: var(--xanh-nhat);
+    border: 1px solid rgba(63,162,255,.3);
     transition: background .15s;
   }
-  .lien-ket a:hover { background: rgba(47,107,255,.24); }
+  .lien-ket a:hover { background: rgba(63,162,255,.28); }
 
   /* Giá trị */
   .gia-tri {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 16px;
   }
   .gia-tri div {
-    padding: 18px 20px;
-    border-radius: 14px;
+    padding: 22px;
+    border-radius: 16px;
     border: 1px solid var(--vien);
-    background: rgba(15,23,53,.5);
+    background: rgba(6, 21, 90, .45);
   }
-  .gia-tri b { display: block; margin-bottom: 4px; font-size: 16px; }
-  .gia-tri span { color: var(--chu-phu); font-size: 14px; }
+  .gia-tri .so {
+    display: block;
+    font-family: var(--rong);
+    font-size: 13px;
+    color: var(--xanh-sang);
+    margin-bottom: 10px;
+  }
+  .gia-tri b { display: block; margin-bottom: 4px; font-size: 17px; }
+  .gia-tri span:last-child { color: var(--chu-phu); font-size: 14px; }
+
+  /* Liên hệ */
+  .lien-he {
+    margin: 8px 0 56px;
+    padding: 36px 28px;
+    border-radius: 22px;
+    text-align: center;
+    background:
+      linear-gradient(120deg, rgba(31,94,255,.55), rgba(6,21,90,.6) 60%),
+      var(--nen-2);
+    border: 1px solid var(--vien-sang);
+  }
+  .lien-he h2 { margin: 0 0 8px; font-size: clamp(22px, 4vw, 28px); font-weight: 800; }
+  .lien-he p { margin: 0 0 22px; color: #c9d6ff; }
 
   footer {
     border-top: 1px solid var(--vien);
-    padding: 28px 0 40px;
+    padding: 26px 0 40px;
     display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;
     color: var(--chu-phu); font-size: 14px;
   }
-  footer a { color: var(--xanh-sang); text-decoration: none; font-weight: 600; }
+  footer .ky { font-family: var(--rong); font-size: 12px; letter-spacing: .12em; }
+  footer a { color: var(--xanh-nhat); text-decoration: none; font-weight: 600; }
   footer a:hover { text-decoration: underline; }
 
-  @media (max-width: 520px) {
-    .hero .logo { width: 190px; height: 190px; }
-    .nut-phu { margin: 10px 0 0 8px; }
+  @media (max-width: 560px) {
+    .menu { display: none; }
+    .hero { padding: 28px 0 56px; }
+    .khau-hieu { letter-spacing: .28em; }
   }
   @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; }
+    * { transition: none !important; animation: none !important; }
     html { scroll-behavior: auto; }
   }
 </style>
 </head>
 <body>
+<div class="vet" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b><b></b></div>
+
 <div class="trang">
+  <nav class="thanh">
+    <a class="thuong-hieu" href="./">
+      <img src="img/favicon.png" alt="" width="34" height="34">
+      NTP <span>TEAM</span>
+    </a>
+    <div class="menu">
+      <a href="#tro-choi">Trò chơi</a>
+      <a href="#cach-lam">Cách làm</a>
+      <a href="#lien-he">Liên hệ</a>
+    </div>
+  </nav>
+
   <header class="hero">
-    <img class="logo" src="img/logo.png" alt="NTP Team – Game / Mobile App" width="240" height="240">
-    <h1>Game &amp; ứng dụng di động<br><span>độc lập từ Việt Nam</span></h1>
-    <p>Chúng tôi làm những trò chơi nhỏ, chơi offline, lấy cảm hứng từ thế giới tu tiên và kiếm hiệp.</p>
-    <a class="nut nut-chinh" href="#tro-choi">Xem trò chơi</a>
-    <a class="nut nut-phu" href="mailto:nguyentanphien93@gmail.com">Liên hệ</a>
+    <img class="dau-an" src="img/ntp-mark.png" alt="" width="640" height="298">
+    <h1 class="ten">NTP <span>TEAM</span></h1>
+    <p class="khau-hieu">GAME<em>/</em>MOBILE APP</p>
+    <p class="gioi-thieu">Nhóm phát triển game và ứng dụng di động độc lập từ Việt Nam. Chúng tôi làm những trò chơi nhỏ, chơi offline, lấy cảm hứng từ thế giới tu tiên và kiếm hiệp.</p>
+    <div class="nut-nhom">
+      <a class="nut nut-chinh" href="#tro-choi">Xem trò chơi</a>
+      <a class="nut nut-phu" href="#lien-he">Liên hệ</a>
+    </div>
   </header>
 
   <section id="tro-choi">
     <div class="tieu-de">
+      <span class="nhan">GAMES</span>
       <h2>Trò chơi</h2>
-      <span class="nhan">Game</span>
     </div>
     <div class="ds-game">
       <article class="game">
@@ -212,19 +337,26 @@
     </div>
   </section>
 
-  <section>
+  <section id="cach-lam">
     <div class="tieu-de">
+      <span class="nhan">OUR WAY</span>
       <h2>Cách chúng tôi làm game</h2>
     </div>
     <div class="gia-tri">
-      <div><b>Chơi offline</b><span>Không cần mạng, chơi mọi lúc mọi nơi.</span></div>
-      <div><b>Nhỏ gọn</b><span>Dung lượng nhẹ, chạy mượt trên điện thoại.</span></div>
-      <div><b>Tôn trọng người chơi</b><span>Minh bạch về dữ liệu và quyền riêng tư.</span></div>
+      <div><span class="so">01</span><b>Chơi offline</b><span>Không cần mạng, chơi mọi lúc mọi nơi.</span></div>
+      <div><span class="so">02</span><b>Nhỏ gọn</b><span>Dung lượng nhẹ, chạy mượt trên điện thoại.</span></div>
+      <div><span class="so">03</span><b>Tôn trọng người chơi</b><span>Minh bạch về dữ liệu và quyền riêng tư.</span></div>
     </div>
   </section>
 
+  <div class="lien-he" id="lien-he">
+    <h2>Góp ý hay hợp tác?</h2>
+    <p>Gửi thư cho chúng tôi, mọi phản hồi đều được đọc.</p>
+    <a class="nut nut-chinh" href="mailto:nguyentanphien93@gmail.com">nguyentanphien93@gmail.com</a>
+  </div>
+
   <footer>
-    <span>© 2026 NTP Team</span>
+    <span class="ky">© 2026 NTP TEAM</span>
     <span>Liên hệ: <a href="mailto:nguyentanphien93@gmail.com">nguyentanphien93@gmail.com</a></span>
   </footer>
 </div>
