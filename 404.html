@@ -110,9 +110,6 @@
   .nut:focus-visible { outline: 2px solid var(--xanh-nhat); outline-offset: 3px; }
   .nut-chinh { background: linear-gradient(90deg, var(--xanh), var(--xanh-sang)); color: #fff; }
   .nut-phu { background: rgba(14,44,150,.7); color: var(--chu); }
-  .goi-y { color: var(--chu-phu); font-size: 13px; opacity: .7; margin-top: 22px; }
-  @media (hover: none) { .goi-y .chuot { display: none; } }
-  @media (hover: hover) { .goi-y .cham { display: none; } }
 </style>
 </head>
 <body>
@@ -138,7 +135,6 @@
     <a class="nut nut-chinh" href="/" data-i18n="home">Về trang chủ</a>
     <a class="nut nut-phu" href="/#games" data-i18n="games">Xem trò chơi</a>
   </div>
-  <p class="goi-y"><span class="chuot" data-i18n="hintMouse">Rê chuột qua số 404 thử xem</span><span class="cham" data-i18n="hintTouch">Chạm vào số 404 thử xem</span></p>
 </main>
 
 <script>
@@ -147,8 +143,7 @@
   var EN = {
     title: 'This page doesn’t exist',
     desc: 'The link may have changed or been mistyped. Head back home to keep exploring.',
-    home: 'Back to home', games: 'See our games',
-    hintMouse: 'Try moving your cursor over the 404', hintTouch: 'Try touching the 404'
+    home: 'Back to home', games: 'See our games'
   };
   var nodes = document.querySelectorAll('[data-i18n]');
   var VI = {};
