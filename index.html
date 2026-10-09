@@ -184,6 +184,7 @@
   }
   .game {
     position: relative;
+    color: inherit; text-decoration: none;
     display: flex; flex-direction: column;
     background: var(--the);
     backdrop-filter: blur(8px);
@@ -200,7 +201,22 @@
     background: linear-gradient(90deg, transparent, var(--xanh-nhat), transparent);
     opacity: .7;
   }
-  .game:hover { border-color: var(--vien-sang); transform: translateY(-4px); }
+  .game:hover, .game:focus-visible { border-color: var(--vien-sang); transform: translateY(-4px); }
+  .game:focus-visible { outline: 2px solid var(--xanh-nhat); outline-offset: 3px; }
+  .game::after {
+    content: "→";
+    position: absolute; bottom: 22px; right: 22px;
+    width: 34px; height: 34px;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    font-size: 17px;
+    color: var(--xanh-nhat);
+    background: rgba(63,162,255,.12);
+    border: 1px solid rgba(63,162,255,.28);
+    transition: background .2s, transform .2s, color .2s;
+  }
+  .game:hover::after { background: var(--xanh); color: #fff; transform: translateX(3px); }
+  .game p { padding-right: 44px; min-height: 34px; }
   .game .dau { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
   .game img {
     width: 64px; height: 64px; flex: none;
@@ -229,19 +245,7 @@
     animation: nhip 1.8s ease-out infinite;
   }
   @keyframes nhip { 70%, 100% { box-shadow: 0 0 0 7px rgba(255,184,60,0); } }
-  .game p { margin: 0 0 20px; color: var(--chu-phu); font-size: 15px; flex: 1; }
-  .lien-ket { display: flex; flex-wrap: wrap; gap: 8px; }
-  .lien-ket a {
-    font-size: 13px; font-weight: 600;
-    text-decoration: none;
-    padding: 7px 14px;
-    border-radius: 999px;
-    background: rgba(63,162,255,.14);
-    color: var(--xanh-nhat);
-    border: 1px solid rgba(63,162,255,.3);
-    transition: background .15s;
-  }
-  .lien-ket a:hover { background: rgba(63,162,255,.28); }
+  .game p { margin: 0; color: var(--chu-phu); font-size: 15px; flex: 1; }
 
   /* Giá trị */
   .gia-tri {
@@ -340,7 +344,7 @@
       <h2 data-i18n="gamesTitle">Trò chơi</h2>
     </div>
     <div class="ds-game">
-      <article class="game">
+      <a class="game" href="holotutien/">
         <div class="dau">
           <img src="holotutien/img/icon.png" alt="" width="64" height="64">
           <div>
@@ -350,12 +354,8 @@
         </div>
         <span class="trang-thai" data-i18n="statusDev">Đang phát triển</span>
         <p data-i18n="hlDesc">Trồng linh dược trong hồ lô, luyện đan và đánh yêu thú theo lượt.</p>
-        <div class="lien-ket">
-          <a href="holotutien/" data-i18n="linkAbout">Giới thiệu</a>
-          <a href="holotutien/huong-dan.html" data-i18n="linkGuide">Hướng dẫn</a>
-        </div>
-      </article>
-      <article class="game">
+      </a>
+      <a class="game" href="ngulamkiem/">
         <div class="dau">
           <img src="img/ngu-kiem-hanh.png" alt="" width="64" height="64">
           <div>
@@ -365,10 +365,7 @@
         </div>
         <span class="trang-thai" data-i18n="statusDev">Đang phát triển</span>
         <p data-i18n="nkDesc">Trò chơi ngự kiếm phiêu lưu.</p>
-        <div class="lien-ket">
-          <a href="ngulamkiem/" data-i18n="linkPrivacy">Chính sách riêng tư</a>
-        </div>
-      </article>
+      </a>
     </div>
   </section>
 
@@ -423,7 +420,6 @@
     statusDev: 'In development',
     hlGenre: 'Cultivation · Alchemy · Offline',
     hlDesc: 'Grow spirit herbs inside a magic gourd, brew elixirs and fight beasts in turn-based battles.',
-    linkAbout: 'About', linkGuide: 'Guide', linkPrivacy: 'Privacy policy',
     nkGenre: 'Adventure · Wuxia',
     nkDesc: 'A sword-flying adventure game.',
     wayTitle: 'How we make games',
