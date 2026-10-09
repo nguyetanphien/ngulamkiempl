@@ -85,7 +85,20 @@
   }
   .thuong-hieu img { width: 34px; height: 34px; border-radius: 9px; }
   .thuong-hieu span { color: var(--xanh-sang); }
+  .phai { display: flex; align-items: center; gap: 22px; }
   .menu { display: flex; gap: 22px; }
+  .ngon-ngu {
+    display: flex; padding: 3px;
+    border: 1px solid var(--vien); border-radius: 999px;
+    background: rgba(6,21,90,.5);
+  }
+  .ngon-ngu button {
+    font: 600 12px/1 "Be Vietnam Pro", sans-serif; letter-spacing: .06em;
+    color: var(--chu-phu); background: none; border: 0;
+    padding: 7px 11px; border-radius: 999px; cursor: pointer;
+  }
+  .ngon-ngu button[aria-pressed="true"] { background: var(--xanh); color: #fff; }
+  .ngon-ngu button:focus-visible { outline: 2px solid var(--xanh-nhat); outline-offset: 1px; }
   .menu a {
     color: var(--chu-phu); text-decoration: none;
     font-size: 14px; font-weight: 500;
@@ -189,20 +202,33 @@
   }
   .game:hover { border-color: var(--vien-sang); transform: translateY(-4px); }
   .game .dau { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
-  .game img, .game .icon-chu {
+  .game img {
     width: 64px; height: 64px; flex: none;
     border-radius: 16px;
     image-rendering: pixelated;
     background: #061650;
     border: 1px solid var(--vien);
   }
-  .game .icon-chu {
-    display: grid; place-items: center;
-    color: var(--xanh-nhat);
-    font-size: 30px;
-  }
   .game h3 { margin: 0; font-size: 20px; font-weight: 700; }
   .game .the-loai { font-size: 12px; color: var(--chu-phu); letter-spacing: .04em; }
+  .trang-thai {
+    align-self: flex-start;
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-bottom: 12px;
+    padding: 4px 11px 4px 9px;
+    border-radius: 999px;
+    font-size: 12px; font-weight: 600; letter-spacing: .02em;
+    color: #ffd27a;
+    background: rgba(255,186,60,.1);
+    border: 1px solid rgba(255,186,60,.32);
+  }
+  .trang-thai::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%;
+    background: #ffb83c;
+    box-shadow: 0 0 0 0 rgba(255,184,60,.6);
+    animation: nhip 1.8s ease-out infinite;
+  }
+  @keyframes nhip { 70%, 100% { box-shadow: 0 0 0 7px rgba(255,184,60,0); } }
   .game p { margin: 0 0 20px; color: var(--chu-phu); font-size: 15px; flex: 1; }
   .lien-ket { display: flex; flex-wrap: wrap; gap: 8px; }
   .lien-ket a {
@@ -265,6 +291,7 @@
 
   @media (max-width: 560px) {
     .menu { display: none; }
+    .ngon-ngu button { padding: 7px 10px; }
     .hero { padding: 28px 0 56px; }
     .khau-hieu { letter-spacing: .28em; }
   }
@@ -283,10 +310,16 @@
       <img src="img/favicon.png" alt="" width="34" height="34">
       NTP <span>TEAM</span>
     </a>
-    <div class="menu">
-      <a href="#tro-choi">Trò chơi</a>
-      <a href="#cach-lam">Cách làm</a>
-      <a href="#lien-he">Liên hệ</a>
+    <div class="phai">
+      <div class="menu">
+        <a href="#tro-choi" data-i18n="navGames">Trò chơi</a>
+        <a href="#cach-lam" data-i18n="navWay">Cách làm</a>
+        <a href="#lien-he" data-i18n="navContact">Liên hệ</a>
+      </div>
+      <div class="ngon-ngu" role="group" aria-label="Ngôn ngữ / Language">
+        <button type="button" data-lang="vi" aria-pressed="true">VI</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
     </div>
   </nav>
 
@@ -294,44 +327,46 @@
     <img class="dau-an" src="img/ntp-mark.png" alt="" width="640" height="298">
     <h1 class="ten">NTP <span>TEAM</span></h1>
     <p class="khau-hieu">GAME<em>/</em>MOBILE APP</p>
-    <p class="gioi-thieu">Nhóm phát triển game và ứng dụng di động độc lập từ Việt Nam. Chúng tôi làm những trò chơi nhỏ, chơi offline, lấy cảm hứng từ thế giới tu tiên và kiếm hiệp.</p>
+    <p class="gioi-thieu" data-i18n="intro">Nhóm phát triển game và ứng dụng di động độc lập từ Việt Nam. Chúng tôi làm những trò chơi nhỏ, chơi offline, lấy cảm hứng từ thế giới tu tiên và kiếm hiệp.</p>
     <div class="nut-nhom">
-      <a class="nut nut-chinh" href="#tro-choi">Xem trò chơi</a>
-      <a class="nut nut-phu" href="#lien-he">Liên hệ</a>
+      <a class="nut nut-chinh" href="#tro-choi" data-i18n="ctaGames">Xem trò chơi</a>
+      <a class="nut nut-phu" href="#lien-he" data-i18n="navContact">Liên hệ</a>
     </div>
   </header>
 
   <section id="tro-choi">
     <div class="tieu-de">
       <span class="nhan">GAMES</span>
-      <h2>Trò chơi</h2>
+      <h2 data-i18n="gamesTitle">Trò chơi</h2>
     </div>
     <div class="ds-game">
       <article class="game">
         <div class="dau">
-          <img src="holotutien/img/icon.png" alt="">
+          <img src="holotutien/img/icon.png" alt="" width="64" height="64">
           <div>
             <h3>Hồ Lô Tu Tiên</h3>
-            <div class="the-loai">Tu tiên · Luyện đan · Offline</div>
+            <div class="the-loai" data-i18n="hlGenre">Tu tiên · Luyện đan · Offline</div>
           </div>
         </div>
-        <p>Trồng linh dược trong hồ lô, luyện đan và đánh yêu thú theo lượt.</p>
+        <span class="trang-thai" data-i18n="statusDev">Đang phát triển</span>
+        <p data-i18n="hlDesc">Trồng linh dược trong hồ lô, luyện đan và đánh yêu thú theo lượt.</p>
         <div class="lien-ket">
-          <a href="holotutien/">Giới thiệu</a>
-          <a href="holotutien/huong-dan.html">Hướng dẫn</a>
+          <a href="holotutien/" data-i18n="linkAbout">Giới thiệu</a>
+          <a href="holotutien/huong-dan.html" data-i18n="linkGuide">Hướng dẫn</a>
         </div>
       </article>
       <article class="game">
         <div class="dau">
-          <div class="icon-chu" aria-hidden="true">劍</div>
+          <img src="img/ngu-kiem-hanh.png" alt="" width="64" height="64">
           <div>
             <h3>Ngự Kiếm Hành</h3>
-            <div class="the-loai">Phiêu lưu · Kiếm hiệp</div>
+            <div class="the-loai" data-i18n="nkGenre">Phiêu lưu · Kiếm hiệp</div>
           </div>
         </div>
-        <p>Trò chơi ngự kiếm phiêu lưu.</p>
+        <span class="trang-thai" data-i18n="statusDev">Đang phát triển</span>
+        <p data-i18n="nkDesc">Trò chơi ngự kiếm phiêu lưu.</p>
         <div class="lien-ket">
-          <a href="ngulamkiem/">Chính sách riêng tư</a>
+          <a href="ngulamkiem/" data-i18n="linkPrivacy">Chính sách riêng tư</a>
         </div>
       </article>
     </div>
@@ -340,25 +375,100 @@
   <section id="cach-lam">
     <div class="tieu-de">
       <span class="nhan">OUR WAY</span>
-      <h2>Cách chúng tôi làm game</h2>
+      <h2 data-i18n="wayTitle">Cách chúng tôi làm game</h2>
     </div>
     <div class="gia-tri">
-      <div><span class="so">01</span><b>Chơi offline</b><span>Không cần mạng, chơi mọi lúc mọi nơi.</span></div>
-      <div><span class="so">02</span><b>Nhỏ gọn</b><span>Dung lượng nhẹ, chạy mượt trên điện thoại.</span></div>
-      <div><span class="so">03</span><b>Tôn trọng người chơi</b><span>Minh bạch về dữ liệu và quyền riêng tư.</span></div>
+      <div><span class="so">01</span><b data-i18n="w1">Chơi offline</b><span data-i18n="w1d">Không cần mạng, chơi mọi lúc mọi nơi.</span></div>
+      <div><span class="so">02</span><b data-i18n="w2">Nhỏ gọn</b><span data-i18n="w2d">Dung lượng nhẹ, chạy mượt trên điện thoại.</span></div>
+      <div><span class="so">03</span><b data-i18n="w3">Tôn trọng người chơi</b><span data-i18n="w3d">Minh bạch về dữ liệu và quyền riêng tư.</span></div>
     </div>
   </section>
 
   <div class="lien-he" id="lien-he">
-    <h2>Góp ý hay hợp tác?</h2>
-    <p>Gửi thư cho chúng tôi, mọi phản hồi đều được đọc.</p>
+    <h2 data-i18n="contactTitle">Góp ý hay hợp tác?</h2>
+    <p data-i18n="contactText">Gửi thư cho chúng tôi, mọi phản hồi đều được đọc.</p>
     <a class="nut nut-chinh" href="mailto:nguyentanphien93@gmail.com">nguyentanphien93@gmail.com</a>
   </div>
 
   <footer>
     <span class="ky">© 2026 NTP TEAM</span>
-    <span>Liên hệ: <a href="mailto:nguyentanphien93@gmail.com">nguyentanphien93@gmail.com</a></span>
+    <span><span data-i18n="footContact">Liên hệ:</span> <a href="mailto:nguyentanphien93@gmail.com">nguyentanphien93@gmail.com</a></span>
   </footer>
 </div>
+<script>
+(function () {
+  // Cuộn mượt tới mục mà không để lại #... trên thanh địa chỉ.
+  function den(id) {
+    var el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      den(a.getAttribute('href').slice(1));
+    });
+  });
+  if (location.hash) {
+    var id = decodeURIComponent(location.hash.slice(1));
+    history.replaceState(null, '', location.pathname + location.search);
+    addEventListener('load', function () { den(id); });
+  }
+
+  var EN = {
+    desc: 'NTP Team – an independent game and mobile app developer from Vietnam.',
+    navGames: 'Games', navWay: 'Our way', navContact: 'Contact',
+    intro: 'An independent game and mobile app team from Vietnam. We make small, offline games inspired by the worlds of cultivation and wuxia.',
+    ctaGames: 'See our games',
+    gamesTitle: 'Games',
+    statusDev: 'In development',
+    hlGenre: 'Cultivation · Alchemy · Offline',
+    hlDesc: 'Grow spirit herbs inside a magic gourd, brew elixirs and fight beasts in turn-based battles.',
+    linkAbout: 'About', linkGuide: 'Guide', linkPrivacy: 'Privacy policy',
+    nkGenre: 'Adventure · Wuxia',
+    nkDesc: 'A sword-flying adventure game.',
+    wayTitle: 'How we make games',
+    w1: 'Play offline', w1d: 'No internet needed, play anytime, anywhere.',
+    w2: 'Small & light', w2d: 'Tiny download, runs smoothly on any phone.',
+    w3: 'Respect for players', w3d: 'Transparent about data and privacy.',
+    contactTitle: 'Feedback or partnership?',
+    contactText: 'Drop us an email — we read every message.',
+    footContact: 'Contact:'
+  };
+  var nodes = document.querySelectorAll('[data-i18n]');
+  var meta = document.querySelector('meta[name="description"]');
+  var VI = { desc: meta.content };
+  nodes.forEach(function (el) { VI[el.dataset.i18n] = el.innerHTML; });
+  var T = { vi: VI, en: EN };
+  var nut = document.querySelectorAll('.ngon-ngu button');
+
+  function apply(lang) {
+    var t = T[lang];
+    nodes.forEach(function (el) {
+      var s = t[el.dataset.i18n];
+      if (s != null) el.innerHTML = s;
+    });
+    document.documentElement.lang = lang;
+    meta.content = t.desc;
+    nut.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.lang === lang); });
+  }
+
+  function pick() {
+    var q = new URLSearchParams(location.search).get('lang');
+    if (q && T[q.toLowerCase()]) return q.toLowerCase();
+    try { var saved = localStorage.getItem('lang'); if (T[saved]) return saved; } catch (e) {}
+    var prefs = navigator.languages || [navigator.language || ''];
+    return String(prefs[0] || '').toLowerCase().indexOf('vi') === 0 ? 'vi' : 'en';
+  }
+
+  nut.forEach(function (b) {
+    b.addEventListener('click', function () {
+      apply(b.dataset.lang);
+      try { localStorage.setItem('lang', b.dataset.lang); } catch (e) {}
+    });
+  });
+
+  apply(pick());
+})();
+</script>
 </body>
 </html>
