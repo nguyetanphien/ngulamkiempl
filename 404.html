@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 – NTP Team</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#041045">
+<link rel="icon" href="/img/favicon.png?v=4">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png?v=4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Michroma&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --nen: #030c3a;
+    --vien: rgba(90, 150, 255, .22);
+    --chu: #f2f6ff;
+    --chu-phu: #a9b8e8;
+    --xanh: #1f5eff;
+    --xanh-sang: #3fa2ff;
+    --xanh-nhat: #8fd0ff;
+    --rong: "Michroma", "Be Vietnam Pro", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { color-scheme: dark; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    background:
+      radial-gradient(1100px 700px at 50% 30%, #071a6e 0%, transparent 70%),
+      linear-gradient(160deg, #0732b8 0%, #041355 32%, var(--nen) 60%, #05165e 100%);
+    background-color: var(--nen);
+    color: var(--chu);
+    font: 400 16px/1.65 "Be Vietnam Pro", "Segoe UI", Roboto, Arial, sans-serif;
+  }
+
+  /* Vệt sáng chéo như trong logo */
+  .vet { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+  .vet i {
+    position: absolute;
+    width: 160vmax; height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(80,160,255,.9) 45%, #bfe3ff 50%, rgba(80,160,255,.9) 55%, transparent);
+    box-shadow: 0 0 18px 2px rgba(60,140,255,.55);
+    transform: rotate(-36deg);
+  }
+  .vet i:nth-child(1) { top: 8%;  left: -95vmax; }
+  .vet i:nth-child(2) { top: 14%; left: -100vmax; opacity: .5; }
+  .vet i:nth-child(3) { top: 92%; left: 10vmax; }
+  .vet i:nth-child(4) { top: 98%; left: 14vmax; opacity: .5; }
+  .vet b {
+    position: absolute;
+    width: 120vmax; height: 26vmax;
+    background: linear-gradient(180deg, rgba(31,94,255,.22), transparent);
+    transform: rotate(-36deg);
+  }
+  .vet b:nth-child(5) { top: -14vmax; left: -78vmax; }
+  .vet b:nth-child(6) { bottom: -16vmax; right: -70vmax; transform: rotate(144deg); }
+
+  canvas { position: fixed; inset: 0; width: 100%; height: 100%; touch-action: none; }
+
+  .thanh {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 2;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    max-width: 1040px; margin: 0 auto; padding: 18px 16px;
+  }
+  .thuong-hieu {
+    display: flex; align-items: center; gap: 10px;
+    color: var(--chu); text-decoration: none;
+    font-family: var(--rong); font-size: 15px; letter-spacing: .06em;
+  }
+  .thuong-hieu img { width: 34px; height: 34px; border-radius: 9px; }
+  .thuong-hieu span { color: var(--xanh-sang); }
+  .ngon-ngu {
+    display: flex; padding: 3px;
+    border: 1px solid var(--vien); border-radius: 999px;
+    background: rgba(6,21,90,.5);
+  }
+  .ngon-ngu button {
+    font: 600 12px/1 "Be Vietnam Pro", sans-serif; letter-spacing: .06em;
+    color: var(--chu-phu); background: none; border: 0;
+    padding: 7px 11px; border-radius: 999px; cursor: pointer;
+  }
+  .ngon-ngu button[aria-pressed="true"] { background: var(--xanh); color: #fff; }
+  .ngon-ngu button:focus-visible { outline: 2px solid var(--xanh-nhat); outline-offset: 1px; }
+
+  /* Nội dung đặt dưới con số 404 vẽ trên canvas */
+  .noi-dung {
+    position: fixed; left: 0; right: 0; z-index: 1;
+    top: calc(50% + min(15vw, 120px));
+    padding: 0 16px;
+    text-align: center;
+    pointer-events: none;
+  }
+  .nhan {
+    font-family: var(--rong); font-size: 12px; letter-spacing: .32em;
+    color: var(--xanh-nhat); margin: 0 0 10px;
+  }
+  h1 { font-size: clamp(22px, 4vw, 30px); font-weight: 700; line-height: 1.3; margin: 0 0 8px; }
+  .mo-ta { color: var(--chu-phu); margin: 0 auto 26px; max-width: 460px; }
+  .nut-nhom { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; pointer-events: auto; }
+  .nut {
+    display: inline-block; padding: 13px 26px;
+    font-weight: 600; font-size: 15px; text-decoration: none;
+    clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+    transition: filter .15s, transform .15s;
+  }
+  .nut:hover { filter: brightness(1.15); transform: translateY(-1px); }
+  .nut:focus-visible { outline: 2px solid var(--xanh-nhat); outline-offset: 3px; }
+  .nut-chinh { background: linear-gradient(90deg, var(--xanh), var(--xanh-sang)); color: #fff; }
+  .nut-phu { background: rgba(14,44,150,.7); color: var(--chu); }
+  .goi-y { color: var(--chu-phu); font-size: 13px; opacity: .7; margin-top: 22px; }
+  @media (hover: none) { .goi-y .chuot { display: none; } }
+  @media (hover: hover) { .goi-y .cham { display: none; } }
+</style>
+</head>
+<body>
+<div class="vet" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b><b></b></div>
+<canvas id="c" aria-hidden="true"></canvas>
+
+<nav class="thanh">
+  <a class="thuong-hieu" href="/">
+    <img src="/img/favicon.png?v=4" alt="" width="34" height="34">
+    NTP <span>TEAM</span>
+  </a>
+  <div class="ngon-ngu" role="group" aria-label="Ngôn ngữ / Language">
+    <button type="button" data-lang="vi" aria-pressed="true">VI</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+</nav>
+
+<main class="noi-dung">
+  <p class="nhan">ERROR 404</p>
+  <h1 data-i18n="title">Trang này không tồn tại</h1>
+  <p class="mo-ta" data-i18n="desc">Có vẻ đường dẫn đã bị đổi hoặc gõ nhầm. Quay về trang chủ để tiếp tục khám phá nhé.</p>
+  <div class="nut-nhom">
+    <a class="nut nut-chinh" href="/" data-i18n="home">Về trang chủ</a>
+    <a class="nut nut-phu" href="/#games" data-i18n="games">Xem trò chơi</a>
+  </div>
+  <p class="goi-y"><span class="chuot" data-i18n="hintMouse">Rê chuột qua số 404 thử xem</span><span class="cham" data-i18n="hintTouch">Chạm vào số 404 thử xem</span></p>
+</main>
+
+<script>
+(function () {
+  // Ngôn ngữ: dùng chung lựa chọn đã lưu với trang chủ.
+  var EN = {
+    title: 'This page doesn’t exist',
+    desc: 'The link may have changed or been mistyped. Head back home to keep exploring.',
+    home: 'Back to home', games: 'See our games',
+    hintMouse: 'Try moving your cursor over the 404', hintTouch: 'Try touching the 404'
+  };
+  var nodes = document.querySelectorAll('[data-i18n]');
+  var VI = {};
+  nodes.forEach(function (el) { VI[el.dataset.i18n] = el.textContent; });
+  var T = { vi: VI, en: EN };
+  var nut = document.querySelectorAll('.ngon-ngu button');
+  function apply(lang) {
+    nodes.forEach(function (el) { el.textContent = T[lang][el.dataset.i18n]; });
+    document.documentElement.lang = lang;
+    nut.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.lang === lang); });
+  }
+  function pick() {
+    try { var saved = localStorage.getItem('lang'); if (T[saved]) return saved; } catch (e) {}
+    var prefs = navigator.languages || [navigator.language || ''];
+    return String(prefs[0] || '').toLowerCase().indexOf('vi') === 0 ? 'vi' : 'en';
+  }
+  nut.forEach(function (b) {
+    b.addEventListener('click', function () {
+      apply(b.dataset.lang);
+      try { localStorage.setItem('lang', b.dataset.lang); } catch (e) {}
+    });
+  });
+  apply(pick());
+
+  // Canvas: số 404 ghép từ hạt sáng, bị đẩy ra khi rê chuột/chạm rồi tự ghép lại.
+  var cv = document.getElementById('c');
+  var ctx = cv.getContext('2d');
+  var tinh = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var dpr, W, H, hat = [], sao = [];
+  var tro = { x: -9999, y: -9999, r: 90 };
+
+  function dung() {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = innerWidth; H = innerHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    // Lấy mẫu điểm ảnh từ chữ 404 vẽ ẩn.
+    var fs = Math.min(W * 0.3, 240);
+    var cy = H / 2 - fs * 0.15;
+    var o = document.createElement('canvas');
+    o.width = W; o.height = H;
+    var g = o.getContext('2d');
+    g.font = '400 ' + fs + 'px Michroma, "Be Vietnam Pro", sans-serif';
+    g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.fillStyle = '#fff';
+    g.fillText('404', W / 2, cy);
+    var data = g.getImageData(0, 0, W, H).data;
+    var buoc = Math.max(4, Math.round(fs / 38));
+    var cu = hat;
+    hat = [];
+    for (var y = 0; y < H; y += buoc) {
+      for (var x = 0; x < W; x += buoc) {
+        if (data[(y * W + x) * 4 + 3] > 128) {
+          var p = cu[hat.length];
+          hat.push({
+            hx: x, hy: y,
+            x: p ? p.x : Math.random() * W, y: p ? p.y : Math.random() * H,
+            vx: 0, vy: 0,
+            r: buoc * (0.32 + Math.random() * 0.18),
+            t: (x - (W / 2 - fs)) / (fs * 2)
+          });
+        }
+      }
+    }
+    tro.r = Math.max(60, fs * 0.42);
+
+    sao = [];
+    var n = Math.round(W * H / 9000);
+    for (var i = 0; i < n; i++) {
+      sao.push({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.4 + .3,
+        v: Math.random() * .25 + .05, a: Math.random() * .6 + .2 });
+    }
+    if (tinh) hat.forEach(function (p) { p.x = p.hx; p.y = p.hy; });
+  }
+
+  function mau(t) {
+    // Chuyển màu từ xanh đậm sang xanh nhạt như logo.
+    t = Math.max(0, Math.min(1, t));
+    var r = Math.round(31 + (143 - 31) * t), gg = Math.round(94 + (208 - 94) * t);
+    return 'rgb(' + r + ',' + gg + ',255)';
+  }
+
+  function ve() {
+    ctx.clearRect(0, 0, W, H);
+
+    sao.forEach(function (s) {
+      if (!tinh) { s.x += s.v; s.y -= s.v * 0.73; if (s.x > W) s.x = 0; if (s.y < 0) s.y = H; }
+      ctx.globalAlpha = s.a;
+      ctx.fillStyle = '#8fd0ff';
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.283); ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+
+    ctx.shadowColor = 'rgba(63,162,255,.8)';
+    ctx.shadowBlur = 10;
+    hat.forEach(function (p) {
+      if (!tinh) {
+        var dx = p.x - tro.x, dy = p.y - tro.y, d2 = dx * dx + dy * dy;
+        if (d2 < tro.r * tro.r) {
+          var d = Math.sqrt(d2) || 1, f = (tro.r - d) / tro.r * 6;
+          p.vx += dx / d * f; p.vy += dy / d * f;
+        }
+        p.vx += (p.hx - p.x) * 0.02; p.vy += (p.hy - p.y) * 0.02;
+        p.vx *= 0.88; p.vy *= 0.88;
+        p.x += p.vx; p.y += p.vy;
+      }
+      ctx.fillStyle = mau(p.t);
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill();
+    });
+    ctx.shadowBlur = 0;
+
+    if (!tinh) requestAnimationFrame(ve);
+  }
+
+  function di(e) { tro.x = e.clientX; tro.y = e.clientY; }
+  function roi() { tro.x = tro.y = -9999; }
+  addEventListener('pointermove', di);
+  addEventListener('pointerdown', di);
+  addEventListener('pointerup', function (e) { if (e.pointerType !== 'mouse') roi(); });
+  document.addEventListener('pointerleave', roi);
+
+  var hen;
+  addEventListener('resize', function () {
+    clearTimeout(hen);
+    hen = setTimeout(function () { dung(); if (tinh) ve(); }, 120);
+  });
+
+  // Chờ font Michroma tải xong để số 404 đúng kiểu chữ của logo.
+  (document.fonts ? document.fonts.load('400 100px Michroma').catch(function () {}) : Promise.resolve())
+    .then(function () { dung(); ve(); });
+})();
+</script>
+</body>
+</html>
